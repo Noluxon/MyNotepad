@@ -1,0 +1,275 @@
+/*Centrer avec "viewheight(vh)"*/
+body {
+      font-family: 'Nunito', sans-serif;
+      background-color: #f0f4ff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      overflow: hidden;
+    }
+
+    /* hide all pages by default */
+    .page { display: none; width: 100%; max-width: 480px; }
+    .page.active { display: block; }
+
+    /* CARTE */
+    .carte {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 36px 32px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      border: 2px solid #e2e8f0;
+    }
+
+    h1 {
+      font-size: 1.7rem;
+      font-weight: 800;
+      color: #1e293b;
+      margin-bottom: 6px;
+    }
+
+    .sous-titre {
+      font-size: 0.9 rem; 
+      color: #64748b;
+      margin-bottom: 24px;
+    }
+
+    /* Former les elements */
+    label {
+      display: block;
+      font-size: 0.85 rem;
+      font-weight: 700;
+      color: #334155;
+      margin-bottom: 5px;
+      margin-top: 14px;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="email"],
+    textarea {
+      width: 90%;
+      padding: 10px 14px;
+      border: 2px solid #cbd5e1;
+      border-radius: 10px;
+      font-family: 'Inconsolata', monospace;
+      font-size: 1rem;
+      color: #1e293b;
+      background: #f8fafc;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    input:focus, textarea:focus {
+      border-color: #6366f1;
+      background: #fff;
+    }
+
+    textarea { resize: vertical; min-height: 80px; }
+
+    /* BOUTTONS */
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 28px;
+      border: none;
+      border-radius: 10px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: transform 0.1s, box-shadow 0.2s;
+    }
+    .btn:active { transform: scale(0.97); }
+
+    .btn-primaire {
+      background: #6366f1;
+      color: white;
+      width: 100%;
+      box-shadow: 0 4px 12px rgba(99,102,241,0.3);
+    }
+    .btn-primaire:hover { background: #4f46e5; }
+
+    .btn-secondaire {
+      background: #e2e8f0;
+      color: #334155;
+    }
+    .btn-secondaire:hover { background: #cbd5e1; }
+
+    .btn-danger {
+      background: #fee2e2;
+      color: #dc2626;
+    }
+    .btn-danger:hover { background: #fecaca; }
+
+    /* === LINKS === */
+    .link-text {
+      text-align: center;
+      margin-top: 16px;
+      font-size: 0.88rem;
+      color: #64748b;
+    }
+    .link-text a {
+      color: #6366f1;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .link-text a:hover { text-decoration: underline; }
+
+    /* MESSAGES */
+    .erreur-msg {
+      background: #fee2e2;
+      color: #dc2626;
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: 0.87rem;
+      margin-top: 12px;
+      font-weight: 600;
+      display: none;
+    }
+    .msg-success {
+      background: #dcfce7;
+      color: #16a34a;
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: 0.87rem;
+      margin-top: 12px;
+      font-weight: 600;
+      display: none;
+    }
+
+    /* === DASHBOARD STYLES === */
+    .bienvenue {
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      color: white;
+      border-radius: 12px;
+      padding: 18px 20px;
+      margin-bottom: 20px;
+    }
+    .bienvenue h2 { font-size: 1.2rem; font-weight: 800; }
+    .bienvenue p { font-size: 0.85rem; opacity: 0.85; margin-top: 3px; }
+
+    .nav-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+    .nav-btn {
+      padding: 8px 16px;
+      border: 2px solid #e2e8f0;
+      border-radius: 8px;
+      background: white;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: #475569;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .nav-btn:hover, .nav-btn.active-tab {
+      background: #6366f1;
+      color: white;
+      border-color: #6366f1;
+    }
+
+    /* === NOTES LIST === */
+    .liste-notes { margin-top: 14px; }
+    .note-item {
+      background: #f8fafc;
+      border: 2px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 12px 14px;
+      margin-bottom: 10px;
+      position: relative;
+    }
+    .note-item .titre-note {
+      font-weight: 700;
+      color: #1e293b;
+      font-size: 0.95rem;
+    }
+    .note-item .note-body {
+      font-size: 0.85rem;
+      color: #475569;
+      margin-top: 4px;
+      white-space: pre-wrap;
+    }
+    .note-item .note-date {
+      font-size: 0.75rem;
+      color: #94a3b8;
+      font-family: 'Inconsolata', monospace;
+      margin-top: 6px;
+    }
+    .note-delete {
+      position: absolute;
+      top: 10px; right: 10px;
+      background: #fee2e2;
+      color: #dc2626;
+      border: none;
+      border-radius: 6px;
+      padding: 3px 10px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .note-delete:hover { background: #fecaca; }
+
+    .etat-vide {
+      text-align: center;
+      color: #94a3b8;
+      padding: 30px 0;
+      font-size: 0.9rem;
+    }
+    .etat-vide span { font-size: 2rem; display: block; margin-bottom: 8px; }
+
+    /* === CODE COMMENT STYLE HEADER === */
+    .code-comment {
+      font-family: 'Inconsolata', monospace;
+      font-size: 0.78rem;
+      color: #94a3b8;
+      margin-bottom: 18px;
+      line-height: 1.6;
+    }
+    .code-comment .vert { color: #22c55e; }
+    .code-comment .bleu { color: #60a5fa; }
+
+    /* === PROFILE PAGE === */
+    .profil-chmp {
+      background: #f8fafc;
+      border: 2px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 12px 16px;
+      margin-bottom: 10px;
+    }
+    .profile-chmp .chmp-etiquette {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #94a3b8;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .profile-field .chmp-valeur {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #1e293b;
+      margin-top: 2px;
+      font-family: 'Inconsolata', monospace;
+    }
+
+    /* count badge */
+    .badge {
+      display: inline-block;
+      background: #6366f1;
+      color: white;
+      border-radius: 999px;
+      padding: 2px 10px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      margin-left: 6px;
+    }
+
+    hr { border: none; border-top: 2px solid #e2e8f0; margin: 18px 0; }
