@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!--Liens-->
+  <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="inscription.css">
+
+  <title>Mon Notepad</title>
+</head>
+<body>
+ 
+
+  <!-- Page 1 : Se connecter -->
+   <div class="page active" id="page-connexion">
+      <script src="inscription.js"></script>
+    <div class="carte">
+      <div class="code-comment">
+        <span class="vert">// page 1 de 4</span>
+      </div>
+      <h1>Se Connecter</h1>
+      <p class="sous-titre">Entrez votre nom et votre mot de passe pour vous connecter.</p>
+      <label for="connexion-utilisateur">Utilisateur</label>
+      <input type="text" id="connexion-user" placeholder="pseudo1234">
+      <label for="motdepasse-connexion">Mot de passe</label>
+      <input type="password" id="connexion-pass" placeholder=".......">
+      <div class="erreur-msg" id="erreurconnexion"></div>
+      <button class="btn btn-primaire" onclick="doLogin()">Se Connecter →</button>
+
+      <div class="link-text">
+        Vous n'avez pas un compte ? <a onclick="goTo('page-inscription')">Inscrivez vous ici</a>
+      </div>
+    </div>
+   </div>
+
+   <!-- Page 2 : S'inscrire -->
+    <div class="page" id="page-inscription">
+      <div class="carte">
+        <div class="code-comment">
+          <span class="vert">//page 2 de 4</span><br>
+        </div>
+        <h1>S'inscrire</h1>
+        <p class="sous-titre">Créer un nouveau compte pour pouvoir vous connecter</p>
+
+        <label for="inscuser">Utilisateur</label>
+        <input type="text" id="inscuser" placeholder="choisir un nom">
+
+        <label for="insc-courriel">Courriel</label>
+        <input type="email" id="insc-courriel" placeholder="vous@example.com">
+
+        <label for="insc-pass">Mot de passe</label>
+        <input type="password" id="insc-pass" placeholder=".......">
+
+        <label for="insc-pass2">Confirmez le mot de passe</label>
+        <input type="password" id="insc-pass2" placeholder="......." >
+
+         <div class="erreur-msg" id="insc-erreur">Quelque chose ne va pas</div>
+         <div class="msg-success" id="insc-success">Compte crée avec succès. Vous pouvez désormais vous connecter.</div>
+         <button class="btn btn-primaire" onclick="doRegister()">Créer un compte</button>
+         <div class="link-text">
+          Vous en avez déjà un? <a onclick="goTo('page-connexion')">Retournez en arrière</a>
+         </div>
+      </div>
+    </div>
+
+
+    <!-- Page 3 : Tableau de bord -->
+     <div class="page" id="page-tdb">
+      <div class="carte">
+        <div class="code-comment">
+          <span class="vert">//page 3 de 4</span>
+        </div>
+        <div class="bienvenue">
+          <h2>Bon retour, <span id="dash-utilisateur">utilisateur</span>!</h2>
+          <p>Faites bon usage de vos outils.</p>
+        </div>
+
+        <div class="nav-row">
+          <button class="nav-btn active-tab" onclick="showTab('tab-notes', this)">📓 Mes Notes</button>
+          <button class="nav-btn" onclick="showTab('tab-ajouter', this)">➕ Add Note</button>
+          <button class="nav-btn" onclick="goTo('page-profile')">Profile</button>
+
+          <!--TAB Liste de notes-->
+          <div id="tab-notes">
+            <p style="font-size: 0.85rem; color: #64748b;"> Vos notes: <span class="badge" id="compte-note">0</span></p>
+            <div class="liste-notes" id="notes-liste">
+              <div class="etat-vide">
+                <span>📭</span>
+                Y'a toujours pas de note ! Ajoutez en un.
+              </div>
+            </div>
+          </div>
+          <!--TAB : Ajoutez une note -->
+          <div id="tab-ajouter" style="display: none;">
+            <label for="titre-note">Titre de la Note</label>
+            <input type="text" id="titre-note" placeholder="ex. Liste de courses">
+
+            <label for="note-body">Contenu de la note</label>
+            <textarea id="note-body" placeholder="Écrivez ce que vous voulez"></textarea>
+            
+            <div class="erreur-msg" id="erreur-note">Remplissez les deux champs</div>
+            <div class="msg-success" id="note-success">Note enregistréee! </div>
+
+            <button class="btn btn-primary" onclick="addNote()">Enregistrer</button>
+          </div>
+
+          <hr>
+          <button class="btn btn-danger" style="margin-top:0" onclick="doLogout()"> Se déconnecter</button>
+        </div>
+      </div>
+     </div>
+
+     <!--Page 4 : Profile -->
+
+     <div class="page" id="page-profile">
+      <div class="carte">
+        <div class="code-comment">
+          <span class="vert">//page 4 de 4</span><br>
+        </div>
+        <h1>Votre profil</h1>
+        
+     <div style="margin-top: 18px;">
+      <div class="profil-chmp">
+        <div class="chmp-etiquette">Username</div>
+        <div class="chmp-valeur" id="prof-pseudo">—</div>
+      </div>
+      <div class="profil-chmp">
+        <div class="chmp-etiquette">Email</div>
+        <div class="chmp-valeur" id="prof-courriel">—</div>
+      </div>
+      <div class="profil-chmp">
+        <div class="chmp-etiquette">Total Notes Saved</div>
+        <div class="chmp-valeur" id="prof-notes">0</div>
+      </div>
+      <div class="profil-chmp">
+        <div class="chmp-etiquette">Account Created</div>
+        <div class="chmp-valeur" id="prof-date">—</div>
+      </div>
+    </div>
+
+    <hr/>
+    <button class="btn btn-secondaire" onclick="goTo('page-tdb')">← Back to Dashboard</button>
+      </div>
+     </div>
+
+</body>
+</html>
